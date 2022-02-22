@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "Recording bipedal dinos from dataset2.csv..."
+awk -F',' '{print $3}' dataset2.csv |grep -v STANCE > pedal.txt
+echo "Recording leg length..."
+awk -F',' '{print $2}' dataset1.csv |grep -v LEG_LENGTH > leg.txt
+echo "Recording stride length..."
+awk -F',' '{print $2}' dataset2.csv |grep -v STRIDE_LENGTH > stride.txt
+cat leg.txt stride.txt > pedal.txt
